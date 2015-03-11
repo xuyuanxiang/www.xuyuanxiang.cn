@@ -1,0 +1,10 @@
+@import "../common/variables";
+
+.badge-negative {
+  color: #fff;
+  background-color: $negative-color;
+
+  &.badge-inverted {
+    color: $negative-color;
+  }
+}

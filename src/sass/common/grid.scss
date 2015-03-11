@@ -1,0 +1,54 @@
+@import "mixins";
+
+/* === 栅格系统  === */
+.row {
+  @include flexbox();
+  @include justify-content(space-between);
+  @include flex-wrap(wrap);
+  @include align-items(flex-start);
+  & > [class*="col-"] {
+    @include border-box();
+  }
+}
+
+$cols: 5, 10, 15, 20, 25, 100/3, 40, 50, 60, 100*(2/3), 75, 80, 85, 90, 95, 100;
+
+.row {
+  @each $col in $cols {
+    $className: floor($col);
+    $n: 100/$col;
+    $n-1: $n - 1;
+
+    .col-#{$className} {
+      width: percentage($col/100);
+      width: -webkit-calc((100% - 15px * #{$n-1}) / #{$n});
+      width: calc((100% - 15px * #{$n-1}) / #{$n});
+    }
+    &.no-gutter {
+      .col-#{$className} {
+        width: percentage($col/100);
+      }
+    }
+  }
+}
+
+/* 适配pad屏幕 */
+@media all and (min-width: 768px) {
+  .row {
+    @each $col in $cols {
+      $className: floor($col);
+      $n: 100/$col;
+      $n-1: $n - 1;
+      .tablet-#{$className} {
+        width: percentage($col/100);
+        width: -webkit-calc((100% - 15px * #{$n-1}) / #{$n});
+        width: calc((100% - 15px * #{$n-1}) / #{$n});
+      }
+      &.no-gutter {
+        .tablet-#{$className} {
+          width: percentage($col/100);
+        }
+      }
+    }
+  }
+}

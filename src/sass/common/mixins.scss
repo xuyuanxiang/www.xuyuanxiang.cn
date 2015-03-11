@@ -1,0 +1,253 @@
+@mixin transform($t) {
+  -webkit-transform: $t;
+  transform: $t;
+}
+
+@mixin transition($d) {
+  -webkit-transition-duration: $d;
+  transition-duration: $d;
+}
+
+@mixin translate3d($x: 0, $y: 0, $z: 0) {
+  -webkit-transform: translate3d($x, $y, $z);
+  transform: translate3d($x, $y, $z);
+}
+
+@mixin transform-origin($to) {
+  -webkit-transform-origin: $to;
+  transform-origin: $to;
+}
+
+@mixin animation($a) {
+  -webkit-animation: $a;
+  animation: $a;
+}
+
+@mixin scrollable() {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@mixin full-size() {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin border-box() {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin box-shadow($bs) {
+  -webkit-box-shadow: $bs;
+  box-shadow: $bs;
+}
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex-shrink($fs) {
+  -webkit-flex-shrink: $fs;
+  -ms-flex: 0 $fs auto;
+  flex-shrink: $fs;
+}
+
+@mixin justify-content($jc) {
+  @if $jc == flex-start {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+  } @else if $jc == flex-end {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+  } @else if $jc == space-between {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+  } @else {
+    -webkit-box-pack: $jc;
+    -ms-flex-pack: $jc;
+    -webkit-justify-content: $jc;
+    justify-content: $jc;
+  }
+}
+
+@mixin flex-wrap($fw) {
+  @if $fw == nowrap {
+    -webkit-box-lines: single;
+    -moz-box-lines: single;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: none;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  } @else if $fw == wrap {
+    -webkit-box-lines: multiple;
+    -moz-box-lines: multiple;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  } @else {
+    -webkit-flex-wrap: $fw;
+    -ms-flex-wrap: $fw;
+    flex-wrap: $fw;
+  }
+}
+
+@mixin align-items($ai) {
+  @if $ai == flex-start {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+  } @else if $ai == flex-end {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+  } @else {
+    -webkit-box-align: $ai;
+    -ms-flex-align: $ai;
+    -webkit-align-items: $ai;
+    align-items: $ai;
+  }
+}
+
+@mixin align-content($ai) {
+  -ms-flex-line-pack: $ai;
+  -webkit-align-content: $ai;
+  align-content: $ai;
+}
+
+@mixin align-self($as) {
+  -ms-flex-item-align: $as;
+  -webkit-align-self: $as;
+  align-self: $as;
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin hairline($position, $color) {
+  @if $position == top {
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: auto;
+      right: auto;
+      height: 1px;
+      width: 100%;
+      background-color: $color;
+      display: block;
+      z-index: 15;
+      @include transform-origin(50% 0%);
+      html.ios-gt-6.pixel-ratio-2 & {
+        @include transform(scaleY(0.5));
+      }
+      html.ios-gt-6.pixel-ratio-3 & {
+        @include transform(scaleY(0.33));
+      }
+    }
+  } @else if $position == left {
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: auto;
+      right: auto;
+      width: 1px;
+      height: 100%;
+      background-color: $color;
+      display: block;
+      z-index: 15;
+      @include transform-origin(0% 50%);
+      html.ios-gt-6.pixel-ratio-2 & {
+        @include transform(scaleX(0.5));
+      }
+      html.ios-gt-6.pixel-ratio-3 & {
+        @include transform(scaleX(0.33));
+      }
+    }
+  } @else if $position == bottom {
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: auto;
+      top: auto;
+      height: 1px;
+      width: 100%;
+      background-color: $color;
+      display: block;
+      z-index: 15;
+      @include transform-origin(50% 100%);
+      html.ios-gt-6.pixel-ratio-2 & {
+        @include transform(scaleY(0.5));
+      }
+      html.ios-gt-6.pixel-ratio-3 & {
+        @include transform(scaleY(0.33));
+      }
+    }
+  } @else if $position == right {
+    &:after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      left: auto;
+      bottom: auto;
+      width: 1px;
+      height: 100%;
+      background-color: $color;
+      display: block;
+      z-index: 15;
+      @include transform-origin(100% 50%);
+      html.ios-gt-6.pixel-ratio-2 & {
+        @include transform(scaleX(0.5));
+      }
+      html.ios-gt-6.pixel-ratio-3 & {
+        @include transform(scaleX(0.33));
+      }
+    }
+  }
+}
+
+@mixin hairline-remove($position) {
+  @if $position != left and $position != top {
+    &:after {
+      display: none;
+    }
+  } @else if $position != right and $position != bottom {
+    &:before {
+      display: none;
+    }
+  }
+}
+
+@mixin encoded-svg-background($svg) {
+  $url: 'encodeURIComponent(#{$svg})';
+  background-image: url("data:image/svg+xml;charset=utf-8,#{$url}");
+}

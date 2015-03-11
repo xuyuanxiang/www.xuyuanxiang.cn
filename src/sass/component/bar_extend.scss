@@ -1,0 +1,47 @@
+@import "../common/variables";
+@import "../common/mixins";
+
+.bar-nav {
+  .brand {
+    margin-left: -$bar-side-spacing;
+  }
+  img.brand {
+    height: $bar-base-height;
+  }
+}
+
+.bar {
+  .icon {
+    .badge {
+      display: inline-block;
+      border-radius: 20px;
+      @include border-box();
+      position: absolute;
+      left: 100%;
+      margin-left: -10px;
+      top: 2px;
+      font-size: 10px;
+      line-height: 1.4;
+      padding: 1px 6px;
+    }
+  }
+}
+
+.bar-tab {
+  .tab-item {
+    .icon {
+      .badge {
+        display: inline-block;
+        border-radius: 20px;
+        @include border-box();
+        position: absolute;
+        left: 100%;
+        margin-left: -10px;
+        top: -2px;
+        font-size: 10px;
+        line-height: 1.4;
+        padding: 1px 6px;
+      }
+    }
+  }
+}

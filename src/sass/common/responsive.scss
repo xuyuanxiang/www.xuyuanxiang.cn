@@ -1,0 +1,14 @@
+img.media-object {
+  @media (max-width: 640px) {
+    width: 72px;
+    height: 72px;
+  }
+  @media (min-width: 641px) and (max-width: 768px) {
+    width: 80px;
+    height: 80px;
+  }
+  @media (min-width: 769px) {
+    width: 96px;
+    height: 96px;
+  }
+}

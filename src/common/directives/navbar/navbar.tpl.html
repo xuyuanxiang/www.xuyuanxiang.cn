@@ -1,0 +1,51 @@
+<!--
+  @overview
+ 
+  @version 
+  @author xuyuanxiang
+  @date 15/3/3
+  ------------------
+  @overview
+  @version 
+  @modifier 
+  @date 
+  ------------------
+ -->
+<header class="bar bar-nav">
+    <a ng-click="goBack()" class="pull-left"
+       ng-if="currentView.backBarButton && viewNums > 1 && !currentView.backBarButton.label && !previousView.title"
+       ng-class="currentView.backBarButton.className">
+        {{currentView.backBarButton.label?currentView.backBarButton.label:previousView.title}}
+    </a>
+    <button ng-click="goBack()"
+            ng-if="currentView.backBarButton && viewNums > 1 && (currentView.backBarButton.label || previousView.title )"
+            class="btn btn-link btn-nav pull-left">
+        <span ng-class="currentView.backBarButton.className"></span>
+        {{currentView.backBarButton.label?currentView.backBarButton.label:previousView.title}}
+    </button>
+    <button class="btn btn-nav pull-left"
+            ng-click="leftBar.clickHandler()"
+            ng-repeat="leftBar in currentView.leftBarButtonItems"
+            ng-if="leftBar.label">
+        <span ng-class="leftBar.className"></span>
+        {{leftBar.label}}
+    </button>
+    <!--<img ng-if="!currentView" class="brand pull-left" src="../dist/img/logo_tjpower.png"/>-->
+
+    <button class="btn btn-primary btn-nav pull-right"
+            ng-click="rightBar.clickHandler()"
+            ng-repeat="rightBar in currentView.rightBarButtonItems"
+            ng-if="rightBar.label">
+        {{rightBar.label}}
+        <span ng-class="rightBar.className"></span>
+    </button>
+
+    <h1 ng-if="currentView.segmentedControls.length == 0" class="title">{{currentView.title}}</h1>
+
+    <div ng-if="currentView.segmentedControls.length > 0" class="segmented-control">
+        <a ng-click="activeSegmented(seg)"
+           class="control-item" ng-class="seg.active?'active':''" ng-repeat="seg in currentView.segmentedControls">
+            {{seg.label}}
+        </a>
+    </div>
+</header>
