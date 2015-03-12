@@ -11,8 +11,9 @@
 
 JS框架：[AngularJS](http://angularjs.org/)
 
-*`静态资源`CDN加速由[七牛存储](http://www.qiniu.com/)提供。
-`数据存储`由[Firebase](https://www.firebase.com)提供。*
+*`静态资源`CDN加速由[七牛存储](http://www.qiniu.com/)提供。*
+
+*`数据存储`由[Firebase](https://www.firebase.com)提供。*
 
 ##运行
 项目采用Grunt构建，使用Bower解决项目依赖。
