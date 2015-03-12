@@ -20,9 +20,15 @@ JS框架：[AngularJS](http://angularjs.org/)
 
 ##开发
 
+### Resource使用示例 (Model&Collection)
+
 默认使用[angularfire](https://github.com/firebase/angularfire) 与FireBase进行数据交互。
 
 如需与后台服务器端交互，可继承src/app/common/resource.js下的XYXModel和XYXCollection基类。
+
+XYXModel 用于维护但个实例，
+
+XYXCollection 用于维护数组实例。
 
 具体api请求路径可在src/app/common/request_api.js内集中维护。
 
@@ -79,3 +85,59 @@ channel: {
 </ul>
 
 ```
+
+### UI
+
+#### 导航栈使用示例（Navbar）
+
+用于维护顶部导航栏的状态
+
+```javascript
+
+    angular.module('myApp', [cn.xuyuanxiang.ui.navbar])
+        .controller('DemoController', ['$scope', 'View', 'navgationStacks',
+            function($scope, View, navgationStacks){
+                // 创建代表当前页面的视图
+                //  创建方式1: 工厂方法，以当前路由创建视图
+                var view1 = View.initWithLocationUrl('首页');
+                //  创建方式2：构造方法
+                var view2 = new View('首页', '/home');
+                // 将视图推入栈
+                navgationStacks.push(view1);
+
+                // 其他方法
+                //覆盖默认返回按钮
+                view2.backBarButton = null;
+                // label为空，则显示上一个视图的name
+                view2.backBarButton = {
+                    className: 'icon icon-left-nav',
+                    label: '返回'
+                };
+                //左侧按钮组
+                view2.leftBarButtonItems = [
+                    {
+                        label: '菜单',
+                        className: 'icon icon-bars',
+                        clickHandler: function () {
+                            alert('菜单');
+                        }
+                    }
+                ];
+                //右侧按钮组 同左侧
+                view2.rightBarButtonItems = [];
+
+                //居中 分段按钮
+                //优先级高于title,
+                //通常title显示当前view的name值，
+                //若segmentedControls不为空，则显示分段按钮，不再显示title
+                view2.segmentedControls = [];
+
+
+            }
+        ]);
+
+```
+
+#### 模态框使用示例（Modal）
+
+待续。。。
