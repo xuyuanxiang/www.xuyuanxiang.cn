@@ -31,9 +31,9 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: [
-                    //'bower_components/angular/angular.min.js',
-                    //'bower_components/angular-touch/angular-touch.min.js',
-                    //'bower_components/angular-ui-router/release/angular-ui-router.min.js',
+                    'bower_components/angular/angular.min.js',
+                    'bower_components/angular-touch/angular-touch.min.js',
+                    'bower_components/angular-ui-router/release/angular-ui-router.min.js',
                     'bower_components/firebase/firebase.js',
                     'bower_components/angularfire/dist/angularfire.min.js',
                     'bower_components/angular-local-storage/dist/angular-local-storage.min.js',
