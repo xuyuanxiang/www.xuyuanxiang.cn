@@ -26,12 +26,7 @@ JS框架：[AngularJS](http://angularjs.org/)
 
 如需与后台服务器端交互，可继承src/app/common/resource.js下的XYXModel和XYXCollection基类。
 
-XYXModel 用于维护但个实例，
-
-XYXCollection 用于维护数组实例。
-
 具体api请求路径可在src/app/common/request_api.js内集中维护。
-
 
 例如，在request_api.js中有如下请求路径：
 
