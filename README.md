@@ -140,4 +140,96 @@ channel: {
 
 #### 模态框使用示例（Modal）
 
-待续。。。
+```javascript
+
+    angular.module('myApp', ['cn.xuyuanxiang.ui.modal'])
+
+    .controller('DemoController', ['$scope', 'xyxModal', 'xyxAlert', 'xyxConfirm', 'xyxIndicator'
+        , function ($scope, xyxModal, xyxAlert, xyxConfirm, xyxIndicator) {
+
+            //可定制模态框
+            xyxModal.show({
+                overlay: true,//是否显示遮罩
+                closeable: false, //是否可关闭
+                innerHtml: "",// 自定义html代码
+                title: "提示", // 标题
+                text: "", // 信息
+                buttons: [{ // 底部按钮组
+                    label: "确定",
+                    handler: null,
+                    bold: true
+                }]
+            });
+
+            //弹出框
+            xyxAlert.show('Alert', function () {
+                alert('click');
+            });
+
+            //对话框
+            xyxConfirm.show('确定删除？', function () {
+                alert('确定');
+            }, function () {
+                alert('取消');
+            });
+
+            // 压力指示计
+            //默认
+            xyxIndicator.show();
+            //自定义文字信息
+            xyxIndicator.show('正在加载，请稍后。。。');
+        }
+    ]);
+
+```
+
+#### 无限向下滚动加载（Infinite scroll）&向下滑动刷新（Pull to refresh）
+
+
+```javascript
+
+    angular.module('myApp', [
+        'cn.xuyuanxiang.ui.infiniteScroll',
+        'cn.xuyuanxiang.ui.pullToRefresh'
+    ]);
+
+```
+
+```html
+
+    <div xyx-pull-to-refresh="refresh()"></div>
+
+    <!-- infinite scroll 原理是监听scroll事件，即onscroll调用的方法 -->
+    <!-- 需要元素本身高度确定时才能触发响应，下面两种情况皆可触发 -->
+    <div style="position: fixed;top: 0;left: 0;width: 100%;height: 100%;overflow: hidden;">
+        <div style="width: 100%;height: 100%;" xyx-infinite-scroll="nextPage()"></div>
+    </div>
+    <div style="height: 400px;" xyx-infinite-scroll="nextPage()"></div>
+
+```
+
+#### 传送带／轮播（slider)
+
+```javascript
+
+    angular.module('myApp', ['cn.xuyuanxiang.ui.slider']);
+
+```
+
+```html
+
+    <xyx-slider auto="true" delay="4000" pagination="true" class="row">
+
+        <xyx-slider-item ng-repeat="ad in advertisements">
+
+            <img class="img-responsive" style="min-width: 100%" ng-src="{{ad}}"/>
+
+            <xyx-slider-item-caption>
+                <h1>字幕</h1>
+            </xyx-slider-item-caption>
+
+        </xyx-slider-item>
+
+    </xyx-slider>
+
+```
