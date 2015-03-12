@@ -90,7 +90,7 @@ channel: {
 
 ```javascript
 
-    angular.module('myApp', [cn.xuyuanxiang.ui.navbar])
+    angular.module('myApp', ['cn.xuyuanxiang.ui.navbar'])
         .controller('DemoController', ['$scope', 'View', 'navgationStacks',
             function($scope, View, navgationStacks){
                 // 创建代表当前页面的视图
