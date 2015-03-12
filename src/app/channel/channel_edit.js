@@ -13,8 +13,8 @@
  */
 (function (angular) {
     var mod = angular.module('cn.xuyuanxiang.channel.edit', [
-        'ui.router'
-
+        'ui.router',
+        'cn.xuyuanxiang.channel.resource'
     ]);
 
     mod.controller('ChannelEditController', ['$scope', '$stateParams', function ($scope, $stateParams) {

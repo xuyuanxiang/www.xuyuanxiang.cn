@@ -15,7 +15,7 @@
     var mod = angular.module('cn.xuyuanxiang.message', [
         'ui.router',
         'cn.xuyuanxiang.message.edit',
-        'cn.xuyuanxiang.model.message',
+        'cn.xuyuanxiang.message.resource',
         'cn.xuyuanxiang.ui.navbar',
         'cn.xuyuanxiang.ui.modal'
     ]);
@@ -56,11 +56,11 @@
                 controller: 'MessageController'
             }).state('editMessage', {
                 url: '/message/edit/:id',
-                templateUrl: 'message/edit/message_edit.tpl.html',
+                templateUrl: 'message/message_edit.tpl.html',
                 controller: 'MessageEditController'
             }).state('createMessage', {
                 url: '/message/edit',
-                templateUrl: 'message/edit/message_edit.tpl.html',
+                templateUrl: 'message/message_edit.tpl.html',
                 controller: 'MessageEditController'
             });
         }

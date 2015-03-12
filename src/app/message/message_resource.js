@@ -12,7 +12,7 @@
  * ------------------
  */
 (function (angular) {
-    var mod = angular.module('cn.xuyuanxiang.model.message', ['firebase']);
+    var mod = angular.module('cn.xuyuanxiang.message.resource', ['firebase']);
 
     mod.factory('Message', ['$firebaseObject', function ($firebaseObject) {
         return $firebaseObject.$extend({});

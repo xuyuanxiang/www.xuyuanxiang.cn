@@ -11,10 +11,10 @@
  * @date
  * ------------------
  */
-(function (angular) {
-    var mod = angular.module('cn.xuyuanxiang.model.channel', ['firebase']);
-
-    mod.factory('Channel', ['$firebaseObject', function ($firebaseObject) {
+angular.module('cn.xuyuanxiang.channel.resource', [
+    'firebase'
+]).factory('Channel', ['$firebaseObject',
+    function ($firebaseObject) {
         return $firebaseObject.$extend({});
-    }]);
-})(angular);
+    }
+]);

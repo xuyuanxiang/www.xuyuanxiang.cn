@@ -14,7 +14,7 @@
 (function (angular) {
     var mod = angular.module('cn.xuyuanxiang.user.login', [
         'cn.xuyuanxiang.ui.navbar',
-        'cn.xuyuanxiang.model.user',
+        'cn.xuyuanxiang.user.resource',
         'LocalStorageModule',
         'firebase'
     ]);

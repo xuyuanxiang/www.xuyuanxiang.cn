@@ -14,7 +14,7 @@
 (function (angular) {
     var mod = angular.module('cn.xuyuanxiang.user.register', [
         'cn.xuyuanxiang.ui.navbar',
-        'cn.xuyuanxiang.model.user'
+        'cn.xuyuanxiang.user.resource'
     ]);
     mod.controller('RegisterController', [
         '$scope', 'View', 'navgationStacks', 'User', '$firebaseAuth',

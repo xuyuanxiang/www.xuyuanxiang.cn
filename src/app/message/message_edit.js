@@ -15,7 +15,7 @@
     var mod = angular.module('cn.xuyuanxiang.message.edit', [
         'ui.router',
         'cn.xuyuanxiang.ui.navbar',
-        'cn.xuyuanxiang.model.message',
+        'cn.xuyuanxiang.message.resource',
         'cn.xuyuanxiang.service.uuid',
         'cn.xuyuanxiang.ui.modal'
     ]);

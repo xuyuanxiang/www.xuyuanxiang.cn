@@ -2,42 +2,24 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        clean: {
-            all: ["dist/*"],
-            css: ["dist/css/*"],
-            image: ["dist/img/*"],
-            js: ["dist/js/*"],
-            tpl: ["dist/js/*tpl.js"],
-            html: ["dist/*.html"],
-            biz: ['dist/js/<%= pkg.name %>-<%= pkg.version %>.application.js',
-                'dist/js/<%= pkg.name %>-<%= pkg.version %>.resources.js',
-                'dist/js/<%= pkg.name %>-<%= pkg.version %>.services.js'
-            ],
-            navbar: ['dist/js/ui-navbar*.js'],
-            modal: ['dist/js/ui-modal*.js'],
-            home: ['dist/js/home*.js'],
-            channel: ['dist/js/channel*.js'],
-            user: ['dist/js/user*.js'],
-            message: ['dist/js/message*.js']
-        },
 
-        sass: {                              // Task
-            base: {                            // Target
-                options: {                       // Target options
+        sass: {
+            base: {
+                options: {
                     style: 'compressed',
                     sourcemap: 'none'
                 },
-                files: {                         // Dictionary of files
-                    'dist/css/<%= pkg.name %>-<%= pkg.version %>.core.min.css': 'src/sass/main.scss'      // 'destination': 'source'
+                files: {
+                    'dist/css/<%= pkg.name %>-<%= pkg.version %>.core.min.css': 'src/sass/main.scss'
                 }
             },
             theme: {
-                options: {                       // Target options
+                options: {
                     style: 'compressed',
                     sourcemap: 'none'
                 },
-                files: {                         // Dictionary of files
-                    'dist/css/<%= pkg.name %>-<%= pkg.version %>.theme.min.css': 'src/sass/theme/theme-ios.scss'      // 'destination': 'source'
+                files: {
+                    'dist/css/<%= pkg.name %>-<%= pkg.version %>.theme.min.css': 'src/sass/theme/theme-ios.scss'
                 }
             }
         },
@@ -55,92 +37,19 @@ module.exports = function (grunt) {
                     'bower_components/firebase/firebase.js',
                     'bower_components/angularfire/dist/angularfire.min.js',
                     'bower_components/angular-local-storage/dist/angular-local-storage.min.js',
-                    'dist/js/<%= pkg.name %>-<%= pkg.version %>.resources.js',
-                    'dist/js/<%= pkg.name %>-<%= pkg.version %>.services.js',
-                    'dist/js/ui-navbar-<%=  pkg.version %>.min.js',
-                    'dist/js/ui-modal-<%=  pkg.version %>.min.js',
-                    'dist/js/home-<%=  pkg.version %>.min.js',
-                    'dist/js/channel-<%=  pkg.version %>.min.js',
-                    'dist/js/user-<%=  pkg.version %>.min.js',
-                    'dist/js/message-<%=  pkg.version %>.min.js',
-                    'dist/js/<%= pkg.name %>-<%= pkg.version %>.application.js'
-
+                    'dist/js/<%= pkg.name %>-<%= pkg.version %>.min.js'
+                    //'dist/js/common-<%= pkg.version %>.min.js',
+                    //'dist/js/ui-modal-<%= pkg.version %>.min.js',
+                    //'dist/js/ui-navbar-<%= pkg.version %>.min.js',
+                    //'dist/js/channel-<%= pkg.version %>.min.js',
+                    //'dist/js/home-<%= pkg.version %>.min.js',
+                    //'dist/js/user-<%= pkg.version %>.min.js',
+                    //'dist/js/message-<%= pkg.version %>.min.js'
                 ],
                 dest: "dist/js/<%= pkg.name %>-<%= pkg.version %>.all.min.js"
             }
         },
 
-        uglify: {//压缩JS
-            application: {//业务逻辑代码
-                files: {
-                    'dist/js/<%= pkg.name %>-<%= pkg.version %>.application.js': [
-                        'src/app/*.js'
-                    ]
-                }
-            },
-            services: {
-                files: {
-                    'dist/js/<%= pkg.name %>-<%= pkg.version %>.services.js': [
-                        'src/common/services/**/*.js'
-                    ]
-                }
-            },
-            resources: {
-                files: {
-                    'dist/js/<%= pkg.name %>-<%= pkg.version %>.resources.js': [
-                        'src/common/resources/**/*.js'
-                    ]
-                }
-            },
-            home: {//模板代码
-                files: {
-                    'dist/js/home-<%=  pkg.version %>.min.js': [
-                        'src/app/home/**/*.js',
-                        'dist/js/home.tpl.js'
-                    ]
-                }
-            },
-            channel: {//模板代码
-                files: {
-                    'dist/js/channel-<%=  pkg.version %>.min.js': [
-                        'src/app/channel/**/*.js',
-                        'dist/js/channel.tpl.js'
-                    ]
-                }
-            },
-            user: {//模板代码
-                files: {
-                    'dist/js/user-<%=  pkg.version %>.min.js': [
-                        'src/app/user/**/*.js',
-                        'dist/js/user.tpl.js'
-                    ]
-                }
-            },
-            message: {//模板代码
-                files: {
-                    'dist/js/message-<%=  pkg.version %>.min.js': [
-                        'src/app/message/**/*.js',
-                        'dist/js/message.tpl.js'
-                    ]
-                }
-            },
-            navbar: {//模板代码
-                files: {
-                    'dist/js/ui-navbar-<%=  pkg.version %>.min.js': [
-                        'src/common/directives/navbar/**/*.js',
-                        'dist/js/navbar.tpl.js'
-                    ]
-                }
-            },
-            modal: {//模板代码
-                files: {
-                    'dist/js/ui-modal-<%=  pkg.version %>.min.js': [
-                        'src/common/directives/modal/**/*.js',
-                        'dist/js/modal.tpl.js'
-                    ]
-                }
-            }
-        },
 
         imagemin: {//压缩图片
             dynamic: {
@@ -155,49 +64,148 @@ module.exports = function (grunt) {
             }
         },
 
-        watch: {
-            grunt: {
-                files: ['Gruntfile.js']
-            },
-            html: {
-                files: ['src/*.html'],
-                tasks: ['clean:html', 'htmlmin']
-            },
-            sass: {
-                files: ['src/sass/**/*.scss'],
-                tasks: ['clean:css', 'sass']
-            },
-            img: {
-                files: ['src/assets/img/**'],
-                tasks: ['clean:image', 'imagemin']
-            },
-            biz: {
-                files: ['src/common/resources/**/*.js', 'src/common/services/**/*.js', 'src/app/*.js'],
-                tasks: ['uglify:business']
-            },
-            navbar: {
-                files: ['src/common/directives/navbar/**/*'],
-                tasks: ['navbar']
-            }
-        },
 
         htmlmin: {
-            web: {
+            dist: {
                 options: {
                     removeComments: true,
                     collapseWhitespace: true
                 },
                 files: {
-                    'dist/index.html': 'src/dist.html'
+                    'dist/index.html': 'src/app/dist.html'
                 }
             }
         },
 
         copy: {
-            product: {
+            dist: {
                 files: [
-                    {expand: true, cwd: 'bower_components/ratchet/fonts/', src: ['*'], dest: 'dist/fonts/'}
+                    {expand: true, cwd: 'bower_components/ratchet/fonts/', src: ['*'], dest: 'dist/fonts/'},
+                    {expand: true, cwd: 'bower_components/fontawesome/fonts/', src: ['*'], dest: 'dist/fonts/'}
                 ]
+            }
+        },
+
+        watch: {
+            grunt: {
+                files: ['Gruntfile.js']
+            },
+            //html: {
+            //    files: ['src/app/*.html'],
+            //    tasks: ['clean:html', 'htmlmin']
+            //},
+            sass: {
+                files: ['src/sass/**/*.scss'],
+                tasks: ['clean:css', 'sass']
+            }
+            //img: {
+            //    files: ['src/assets/img/**'],
+            //    tasks: ['clean:image', 'imagemin']
+            //},
+            //channel: {
+            //    files: ['src/app/channel/**/*'],
+            //    tasks: ['clean:channel', 'channel']
+            //},
+            //home: {
+            //    files: ['src/app/home/**/*'],
+            //    tasks: ['clean:home', 'home']
+            //},
+            //message: {
+            //    files: ['src/app/message/**/*'],
+            //    tasks: ['clean:message', 'message']
+            //},
+            //user: {
+            //    files: ['src/app/user/**/*'],
+            //    tasks: ['clean:user', 'user']
+            //},
+            //navbar: {
+            //    files: ['src/common/directives/navbar/**/*'],
+            //    tasks: ['clean:navbar', 'navbar']
+            //},
+            //modal: {
+            //    files: ['src/common/directives/modal/**/*'],
+            //    tasks: ['clean:modal', 'modal']
+            //}
+        },
+
+
+        clean: {
+            dist: ["dist/*"],
+            css: ["dist/css/*"],
+            image: ["dist/img/*"],
+            html: ["dist/*.html"],
+            tpl: ["dist/js/*tpl.js"],
+            channel: ['dist/js/channel*.js'],
+            home: ['dist/js/home*.js'],
+            message: ['dist/js/message*.js'],
+            user: ['dist/js/user*.js'],
+            navbar: ['dist/js/ui-navbar*.js'],
+            modal: ['dist/js/ui-modal*.js']
+        },
+
+        uglify: {//压缩JS
+            channel: {//业务逻辑代码
+                files: {
+                    'dist/js/channel-<%= pkg.version %>.min.js': [
+                        'src/app/channel/**/*.js',
+                        'dist/js/channel.tpl.js'
+                    ]
+                }
+            },
+            home: {//业务逻辑代码
+                files: {
+                    'dist/js/home-<%= pkg.version %>.min.js': [
+                        'src/app/home/**/*.js',
+                        'dist/js/home.tpl.js'
+                    ]
+                }
+            },
+            message: {//业务逻辑代码
+                files: {
+                    'dist/js/message-<%= pkg.version %>.min.js': [
+                        'src/app/message/**/*.js',
+                        'dist/js/message.tpl.js'
+                    ]
+                }
+            },
+            user: {//业务逻辑代码
+                files: {
+                    'dist/js/user-<%= pkg.version %>.min.js': [
+                        'src/app/user/**/*.js',
+                        'dist/js/user.tpl.js'
+                    ]
+                }
+            },
+            navbar: {//UI
+                files: {
+                    'dist/js/ui-navbar-<%= pkg.version %>.min.js': [
+                        'src/app/common/directives/navbar/**/*.js',
+                        'dist/js/navbar.tpl.js'
+                    ]
+                }
+            },
+            modal: {
+                files: {
+                    'dist/js/ui-modal-<%= pkg.version %>.min.js': [
+                        'src/app/common/directives/modal/**/*.js',
+                        'dist/js/modal.tpl.js'
+                    ]
+                }
+            },
+            common: {
+                files: {
+                    'dist/js/common-<%= pkg.version %>.min.js': [
+                        'src/app/common/*.js'
+                    ]
+                }
+            },
+            dist: {
+                files: {
+                    'dist/js/<%= pkg.name %>-<%= pkg.version %>.min.js': [
+                        'src/app/**/*.js',
+                        'dist/js/*.tpl.js'
+                    ]
+                }
             }
         },
 
@@ -263,8 +271,8 @@ module.exports = function (grunt) {
                 }
             },
             navbar: {
-                cwd: 'src/common/directives/navbar',
-                src: '**/*.tpl.html',
+                cwd: 'src/app/common/directives',
+                src: 'navbar/**/*.tpl.html',
                 dest: 'dist/js/navbar.tpl.js',
                 options: {
                     htmlmin: {
@@ -278,8 +286,8 @@ module.exports = function (grunt) {
                 }
             },
             modal: {
-                cwd: 'src/common/directives/modal',
-                src: '**/*.tpl.html',
+                cwd: 'src/app/common/directives',
+                src: 'modal/**/*.tpl.html',
                 dest: 'dist/js/modal.tpl.js',
                 options: {
                     htmlmin: {
@@ -312,9 +320,9 @@ module.exports = function (grunt) {
     grunt.registerTask('channel', ['clean:channel', 'ngtemplates:channel', 'uglify:channel', 'clean:tpl']);
     grunt.registerTask('message', ['clean:message', 'ngtemplates:message', 'uglify:message', 'clean:tpl']);
 
-    grunt.registerTask('build', ['clean:all', 'sass', 'imagemin', 'htmlmin', 'ngtemplates', 'uglify', 'clean:tpl', 'concat',
-        'clean:navbar', 'clean:modal', 'clean:home', 'clean:channel', 'clean:user', 'clean:message', 'clean:biz', 'copy']);
+    grunt.registerTask('publish', ['clean:dist', 'sass', 'imagemin', 'htmlmin', 'ngtemplates', 'uglify:dist',
+        'concat', 'copy', 'clean:tpl']);
 
-    grunt.registerTask('publish', ['clean:product', 'ngtemplates', 'sass', 'uglify', 'imagemin', 'htmlmin', 'concat']);
+    grunt.registerTask('build', ['clean:css', 'sass', 'copy']);
     grunt.registerTask('devlop', ['build', 'watch']);
 };

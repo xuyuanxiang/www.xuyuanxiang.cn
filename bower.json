@@ -25,11 +25,11 @@
     "modernizr": "~2.8.3",
     "respond": "~1.4.2",
     "animate-sass": "~0.6.3",
-    "fontawesome": "~4.3.0",
     "ratchet": "~2.0.2",
     "firebase": "~2.2.2",
     "angularfire": "~1.0.0",
     "angular-markdown-directive": "~0.3.1",
-    "framework7": "~1.0.3"
+    "framework7": "~1.0.3",
+    "fontawesome": "~4.3.0"
   }
 }

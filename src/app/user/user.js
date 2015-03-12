@@ -27,7 +27,7 @@
                 controller: 'UserController'
             }).state('用户.注册', {
                 url: '/register',
-                templateUrl: 'user/register/register.tpl.html',
+                templateUrl: 'user/user_register.tpl.html',
                 controller: 'RegisterController'
             });
         }
