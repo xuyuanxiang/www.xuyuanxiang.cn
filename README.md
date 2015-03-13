@@ -229,3 +229,36 @@ channel: {
     </xyx-slider>
 
 ```
+
+#### 通知（notifications）
+
+```javascript
+        angular.module('demoApp', ['cn.xuyuanxiang.ui.notifications'])
+            .controller('DemoController', function ($scope, xyxNotifications) {
+
+                //通知队列
+                xyxNotifications.show([{
+                    title: '系统提示',
+                    closeable: true,
+                    text: '通知1', 
+                    delay: 7000  // 7s后自动关闭
+                }, {
+                    title: '系统提示',
+                    closeable: true,
+                    text: '通知1',
+                    delay: 5000
+                }]);
+
+                xyxNotifications.show([{
+                    title: '系统提示',
+                    closeable: true,
+                    text: '通知1',
+                    delay: 3000
+                }, {
+                    title: '系统提示',
+                    closeable: true,
+                    text: '通知1'
+                }]);
+        });
+
+````
