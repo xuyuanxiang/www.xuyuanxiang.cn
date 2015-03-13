@@ -240,7 +240,7 @@ channel: {
                 xyxNotifications.show([{
                     title: '系统提示',
                     closeable: true,
-                    text: '通知1', 
+                    text: '通知1',
                     delay: 7000  // 7s后自动关闭
                 }, {
                     title: '系统提示',
@@ -260,5 +260,25 @@ channel: {
                     text: '通知1'
                 }]);
         });
+
+````
+
+#### 评星（rating）
+
+````javascript
+
+    angular.module('demoApp', ['cn.xuyuanxiang.ui.rating'])
+        .controller('DemoController', ['$scope', function($scope){
+            $scope.currentScore = 3;
+
+        }
+    ]);
+
+````
+
+````html
+
+    <!-- stars: 总分  score: 评分  size: font-size属性 -->
+    <xyx-rating stars="5" score="currentScore" size="24" ></xyx-rating>
 
 ````
