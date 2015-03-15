@@ -298,7 +298,7 @@ npm run test
 
 所有测试用例皆使用[Protractor](http://angular.github.io/protractor/#/)运行
 
-* 配置文件： `protractor-conf.js`
+* 配置文件： `protractor.conf.js`
 * 测试用例： `test/e2e/*.js`
 
 #### 准备
