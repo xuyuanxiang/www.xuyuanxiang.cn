@@ -294,16 +294,18 @@ channel: {
 npm run test
 ```
 
-## 端到端测试（End to end testing）
+###端到端测试（End to end testing）
 
 所有测试用例皆使用[Protractor](http://angular.github.io/protractor/#/)运行
 
 * 配置文件： `protractor-conf.js`
 * 测试用例： `test/e2e/*.js`
 
-### 准备
+#### 准备
 
 下载安装最新的[WebDriver](http://docs.seleniumhq.org/projects/webdriver/)
+
+*需要翻墙...*
 
 ```
 npm run update-webdriver
@@ -315,7 +317,7 @@ npm run update-webdriver
 npm run start-webdriver
 ```
 
-### 运行
+#### 运行
 
 首先在终端中执行以下脚本启动http-server用于与Protractor交互
 
