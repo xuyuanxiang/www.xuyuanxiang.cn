@@ -5,12 +5,19 @@
 ## 目录
 
 1. [简介](#intro)
+
 2. [运行](#run)
+
 3. [开发](#dev)
+
  3.1 [Resource(Model)](#res)
+
  3.2 [UI](#ui)
+
 4. [测试](#test)
+
  4.1 [Unit test](#unit)
+
  4.2 [End to end test](#e2e)
 
 ## <a id="intro" name="intro">简介</a>
