@@ -282,3 +282,49 @@ channel: {
     <xyx-rating stars="5" score="currentScore" size="24" ></xyx-rating>
 
 ````
+
+## 测试
+
+### 单元测试（Unit test）
+
+* 配置文件：`karma.conf.js`
+* 测试用例：`test/unit/**/*.js`
+
+```
+npm run test
+```
+
+# 端到端测试（End to end testing）
+
+所有测试用例皆使用[Protractor](http://angular.github.io/protractor/#/)运行
+
+* 配置文件： `protractor-conf.js`
+* 测试用例： `test/e2e/*.js`
+
+### 准备
+
+下载安装最新的[WebDriver](http://docs.seleniumhq.org/projects/webdriver/)
+
+```
+npm run update-webdriver
+```
+
+启动 WebDriver:
+
+```
+npm run start-webdriver
+```
+
+### 运行
+
+首先在终端中执行以下脚本启动http-server用于与Protractor交互
+
+```
+npm start
+```
+
+然后在终端中新建一个会话，执行以下脚本运行测试用例
+
+```
+npm run protractor
+```
