@@ -294,7 +294,7 @@ channel: {
 npm run test
 ```
 
-# 端到端测试（End to end testing）
+## 端到端测试（End to end testing）
 
 所有测试用例皆使用[Protractor](http://angular.github.io/protractor/#/)运行
 
