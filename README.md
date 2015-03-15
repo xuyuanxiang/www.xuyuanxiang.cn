@@ -2,7 +2,18 @@
 
 **Demo** [www.xuyuanxiang.cn](http://www.xuyuanxiang.cn)
 
-##简介
+## 目录
+
+1. [简介](#intro)
+2. [运行](#run)
+3. [开发](#dev)
+ 3.1 [Resource(Model)](#res)
+ 3.2 [UI](#ui)
+4. [测试](#test)
+ 4.1 [Unit test](#unit)
+ 4.2 [End to end test](#e2e)
+
+## <a id="intro" name="intro">简介</a>
 + CMS内容管理，完全采用Html、CSS、JavaScript架构，支持数据库动态内容创建。
 + 用户模块、栏目模块、新闻模块、产品模块、招聘模块、留言模块... 可插拔模块化开发，按需载入。
 + 适用于初创型企业及个人门户网站，最低只需**年租25元**的低配服务器云空间即可部署。
@@ -15,13 +26,13 @@ JS框架：[AngularJS](http://angularjs.org/)
 
 *`数据存储`由[Firebase](https://www.firebase.com)提供。*
 
-##运行
+## <a id="run" name="run">运行</a>
 项目采用Grunt构建，使用Bower解决项目依赖。
 
 
-##开发
+## <a id="dev" name="dev">开发</a>
 
-### Resource使用示例 (Model&Collection)
+### <a id="res" name="res">Resource使用示例 (Model&Collection)</a>
 
 默认使用[angularfire](https://github.com/firebase/angularfire) 与FireBase进行数据交互。
 
@@ -82,7 +93,7 @@ channel: {
 
 ```
 
-### UI
+### <a id="ui" name="ui">UI</a>
 
 #### 导航栈使用示例（Navbar）
 
@@ -283,9 +294,9 @@ channel: {
 
 ````
 
-## 测试
+## <a id="test" name="test">测试</a>
 
-### 单元测试（Unit test）
+### <a id="unit" name="unit">单元测试（Unit test）</a>
 
 * 配置文件：`karma.conf.js`
 * 测试用例：`test/unit/**/*.js`
@@ -294,7 +305,7 @@ channel: {
 npm run test
 ```
 
-###端到端测试（End to end testing）
+### <a id="e2e" name="e2e">端到端测试（End to end testing）</a>
 
 所有测试用例皆使用[Protractor](http://angular.github.io/protractor/#/)运行
 
