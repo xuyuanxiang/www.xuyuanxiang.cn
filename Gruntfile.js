@@ -140,7 +140,8 @@ module.exports = function (grunt) {
             message: ['dist/js/message*.js'],
             user: ['dist/js/user*.js'],
             navbar: ['dist/js/ui-navbar*.js'],
-            modal: ['dist/js/ui-modal*.js']
+            modal: ['dist/js/ui-modal*.js'],
+            doc: ['docs']
         },
 
         uglify: {//压缩JS
@@ -300,6 +301,13 @@ module.exports = function (grunt) {
                     }
                 }
             }
+        },
+        ngdocs: {
+            options: {
+                scripts: ['angular.js', '../src.js'],
+                html5Mode: false
+            },
+            all: ['src/app/*.js']
         }
     });
 
@@ -312,6 +320,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-ngdocs');
 
     grunt.registerTask('navbar', ['clean:navbar', 'ngtemplates:navbar', 'uglify:navbar', 'clean:tpl']);
     grunt.registerTask('modal', ['clean:modal', 'ngtemplates:modal', 'uglify:modal', 'clean:tpl']);
@@ -319,7 +328,7 @@ module.exports = function (grunt) {
     grunt.registerTask('user', ['clean:user', 'ngtemplates:user', 'uglify:user', 'clean:tpl']);
     grunt.registerTask('channel', ['clean:channel', 'ngtemplates:channel', 'uglify:channel', 'clean:tpl']);
     grunt.registerTask('message', ['clean:message', 'ngtemplates:message', 'uglify:message', 'clean:tpl']);
-
+    grunt.registerTask('doc', ['clean:doc', 'ngdocs']);
     grunt.registerTask('publish', ['clean:dist', 'sass', 'imagemin', 'htmlmin', 'ngtemplates', 'uglify:dist',
         'concat', 'copy', 'clean:tpl']);
 

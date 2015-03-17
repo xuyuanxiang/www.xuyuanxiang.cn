@@ -1,15 +1,5 @@
 /**
- * @overview
- *
- * @version
- * @author xuyuanxiang
- * @date 15/3/5
- * ------------------
- * @overview
- * @version
- * @modifier
- * @date
- * ------------------
+ *  @name Global Application
  */
 var XYX = (function (angular, document) {
     var app = angular.module('cn.xuyuanxiang', [
