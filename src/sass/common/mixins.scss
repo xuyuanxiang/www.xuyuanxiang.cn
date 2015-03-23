@@ -20,6 +20,8 @@
 
 @mixin animation($a) {
   -webkit-animation: $a;
+  -moz-animation: $a;
+  -o-animation: $a;
   animation: $a;
 }
 

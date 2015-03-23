@@ -1,15 +1,8 @@
 /**
- * @overview
- *
- * @version
- * @author xuyuanxiang
- * @date 15/3/10
- * ------------------
- * @overview
- * @version
- * @modifier
- * @date
- * ------------------
+ * @ngdoc
+ * @name cn.xuyuanxiang.message
+ * @description
+ * 留言模块
  */
 (function (angular, Firebase) {
     var mod = angular.module('cn.xuyuanxiang.message', [
