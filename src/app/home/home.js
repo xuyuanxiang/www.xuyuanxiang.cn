@@ -1,45 +1,29 @@
 /**
- * @overview
- *
- * @version
+ * @ngdoc
+ * @name cn.xuyuanxiang.home
+ * @description
+ * 主页模块
  * @author xuyuanxiang
- * @date 15/3/5
- * ------------------
- * @overview
- * @version
- * @modifier
- * @date
- * ------------------
+ * @date 15/4/17
  */
 (function (angular) {
     var mod = angular.module('cn.xuyuanxiang.home', [
-        'ui.router',
-        'cn.xuyuanxiang.ui.navbar'
+        'ui.router'
     ]);
 
     mod.config(['$stateProvider',
         function ($stateProvider) {
             $stateProvider.state('home', {
                 url: '/home',
-                templateUrl: 'home/home.tpl.html',
+                templateUrl: 'app/home/home.tpl.html',
                 controller: 'HomeController'
             });
         }
     ]);
 
     mod.controller('HomeController', [
-        '$scope', '$location', 'View', 'navgationStacks',
-        function ($scope, $location, View, navgationStacks) {
-            var homeView = View.initWithLocationUrl('首页');
-            homeView.rightBarButtonItems = [
-                {
-                    label: '注册',
-                    clickHandler: function () {
-                        $location.url('/user/register');
-                    }
-                }
-            ];
-            navgationStacks.flush(homeView);
+        '$scope', '$location',
+        function ($scope, $location) {
         }
     ]);
 })(angular);

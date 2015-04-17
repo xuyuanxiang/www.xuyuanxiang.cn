@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cn" ng-app="cn.xuyuanxiang">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,12 +16,20 @@
     <meta name="keywords"
           content="徐远翔,iOS,IOS,Swift,Objective-c,手机,移动端,移动开发,前端开发,网站开发,Web,web,APP,app,Angular,Angular JS,Bootstrap,Ratchet,Java Script,javascript,JavaScript,Html,Html5,CSS,HTML,HTML5,css3,css,CSS3">
     <meta name="description" content="徐远翔个人网站，诚接网站开发，移动端网站开发，iPhone App原生开发。">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="stylesheet" href="../../dist/css/www.xuyuanxiang.cn-1.0.0.core.min.css"/>
+    <!-- build:css -->
+    <link rel="stylesheet" href="../dist/css/www.xuyuanxiang.cn-1.0.0.min.css"/>
+    <!-- endbuild -->
 </head>
 <body ng-controller="RootController">
 <div class="ui-view"></div>
+<!-- build:js -->
+<script src="../vendor/angular/angular.min.js"></script>
+<script src="../vendor/angular-animate/angular-animate.min.js"></script>
+<script src="../vendor/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="../vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="../vendor/angular-local-storage/dist/angular-local-storage.min.js"></script>
+<script src="app/home/home.js"></script>
+<script src="application.js"></script>
+<!-- endbuild -->
 </body>
 </html>

@@ -1,19 +1,14 @@
 /**
  *  @name Global Application
  */
-var XYX = (function (angular, document) {
+(function (angular, document) {
     var app = angular.module('cn.xuyuanxiang', [
+        'ngAnimate',
+        'ngSanitize',
         'ui.router',
         'LocalStorageModule',
-        'cn.xuyuanxiang.home',
-        'cn.xuyuanxiang.channel',
-        'cn.xuyuanxiang.user',
-        'cn.xuyuanxiang.message'
+        'cn.xuyuanxiang.home'
     ]);
-
-    app.init = function () {
-        angular.bootstrap(document, ['cn.xuyuanxiang']);
-    };
 
     app.config(['localStorageServiceProvider',
         function (localStorageServiceProvider) {
@@ -34,5 +29,4 @@ var XYX = (function (angular, document) {
         }
     ]);
 
-    return app;
 })(angular, document);

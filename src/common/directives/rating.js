@@ -12,7 +12,7 @@
  * ------------------
  */
 (function (angular) {
-    angular.module('cn.xuyuanxiang.ui.rating').directive('xyxRating', function () {
+    angular.module('cn.xuyuanxiang.ui.rating', []).directive('xyxRating', function () {
         return {
             restrict: 'EA',
             scope: {
