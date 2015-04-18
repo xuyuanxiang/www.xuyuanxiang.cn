@@ -24,6 +24,11 @@
     mod.controller('HomeController', [
         '$scope', '$location',
         function ($scope, $location) {
+            $scope.doLogin = function () {
+                if ($scope.signInForm.$valid) {
+                    alert('login');
+                }
+            }
         }
     ]);
 })(angular);

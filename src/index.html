@@ -21,6 +21,36 @@
     <!-- endbuild -->
 </head>
 <body ng-controller="RootController">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <a href="#" class="navbar-brand">
+        徐远翔
+    </a>
+
+    <form name="signInForm" class="navbar-form navbar-right" ng-submit="doLogin()" role="form">
+        <div class="form-group" ng-class="signInForm.email.$error.email?'has-error':''">
+            <input type="email" name="email" class="form-control" placeholder="电子邮箱"
+                   tabindex="1"
+                   ng-model="email" ng-required="true"/>
+        </div>
+        <div class="form-group" ng-class="signInForm.password.$error.pattern?'has-error':''">
+            <input type="password" name="password" class="form-control" placeholder="密码"
+                   tabindex="2"
+                   ng-model="password" ng-required="true"
+                   ng-pattern="/^([a-zA-Z0-9]|[_]){6,20}$/"/>
+
+            <div class="tooltip bottom" ng-show="signInForm.password.$error.pattern">
+                <div class="tooltip-arrow"></div>
+                <div class="tooltip-inner">
+                    密码只能是6-20位由英文字母、数字或“_”组成的字串。
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success" tabindex="3">登录</button>
+            <a href="#/register" class="btn btn-primary" tabindex="4">注册</a>
+        </div>
+    </form>
+</nav>
 <div class="ui-view"></div>
 <!-- build:js -->
 <script src="../vendor/angular/angular.min.js"></script>
