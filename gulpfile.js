@@ -29,13 +29,15 @@ gulp.task('publish', ['sass'], function () {
         .pipe(clean());
     gulp.src('dist/assets/img/*')
         .pipe(clean());
+    gulp.src('dist/fonts/bootstrap/*')
+        .pipe(clean());
 
     gulp.src('src/**/*.tpl.html')
         .pipe(gulp.dest('dist/'));
     gulp.src('src/assets/**/*')
         .pipe(gulp.dest('dist/assets/'));
 
-    gulp.src('vendor/bootstrap-sass/assets/fonts/bootstrap/*')
+    gulp.src('vendor/bootstrap-sass/assets/fonts/**/*')
         .pipe(gulp.dest('dist/fonts/'));
 
     gulp.src([

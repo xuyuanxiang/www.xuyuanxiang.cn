@@ -9,6 +9,11 @@
     }
     .tooltip-inner {
       background-color: $btn-danger-bg;
+      color: $btn-danger-color;
     }
   }
+}
+
+.navbar-fixed-top ~ .container {
+  padding-top: 72px;
 }

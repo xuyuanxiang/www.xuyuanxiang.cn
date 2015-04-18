@@ -7,7 +7,8 @@
         'ngSanitize',
         'ui.router',
         'LocalStorageModule',
-        'cn.xuyuanxiang.home'
+        'cn.xuyuanxiang.home',
+        'cn.xuyuanxiang.register'
     ]);
 
     app.config(['localStorageServiceProvider',
